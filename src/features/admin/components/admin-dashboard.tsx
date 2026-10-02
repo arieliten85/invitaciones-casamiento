@@ -74,9 +74,7 @@ export function AdminDashboard({ initialGuests, options, timeZone, slug, coupleN
     <div className="flex flex-col gap-6">
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-muted text-sm font-semibold tracking-widest uppercase">
-            Panel de administración
-          </p>
+          <p className="text-muted text-sm font-medium tracking-widest uppercase">Panel de administración</p>
           <h1 className="mt-1 flex flex-wrap items-center gap-3 font-serif text-3xl font-medium sm:text-4xl">
             {coupleNames}
             {demo ? <Badge tone="brand">Datos de ejemplo</Badge> : null}
@@ -119,7 +117,7 @@ export function AdminDashboard({ initialGuests, options, timeZone, slug, coupleN
 
       {visible.length === 0 ? (
         <div className="border-border bg-surface rounded-2xl border border-dashed p-8 text-center">
-          <p className="font-semibold">
+          <p className="font-medium">
             {guests.length === 0 ? "Todavía no hay confirmaciones." : "No hay resultados para esa búsqueda."}
           </p>
           {hasActiveFilters(filters) ? (

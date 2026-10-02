@@ -32,7 +32,7 @@ export function DietaryPicker({ id, legend, options, value, other, error, otherE
 
   return (
     <fieldset className="min-w-0">
-      <legend className="mb-2 text-sm font-semibold">{legend}</legend>
+      <legend className="mb-2 text-sm font-medium">{legend}</legend>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
           const inputId = `${id}-${opt.value}`;
@@ -47,7 +47,7 @@ export function DietaryPicker({ id, legend, options, value, other, error, otherE
               />
               <label
                 htmlFor={inputId}
-                className="border-border bg-surface hover:bg-primary-soft/40 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary peer-focus-visible:outline-ring inline-flex min-h-11 cursor-pointer items-center rounded-full border px-4 text-sm font-semibold transition-colors select-none peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2"
+                className="border-border bg-surface hover:bg-primary-soft/40 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary peer-focus-visible:outline-ring inline-flex min-h-11 cursor-pointer items-center rounded-full border px-4 text-sm font-medium transition-colors select-none peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2"
               >
                 {opt.label}
               </label>
@@ -73,7 +73,7 @@ export function DietaryPicker({ id, legend, options, value, other, error, otherE
             className={inputClass}
           />
           {otherError ? (
-            <p id={`${id}-other-error`} role="alert" className="text-danger mt-1.5 text-sm font-semibold">
+            <p id={`${id}-other-error`} role="alert" className="text-danger mt-1.5 text-sm font-medium">
               {otherError}
             </p>
           ) : null}
@@ -81,7 +81,7 @@ export function DietaryPicker({ id, legend, options, value, other, error, otherE
       ) : null}
 
       {error ? (
-        <p role="alert" className="text-danger mt-1.5 text-sm font-semibold">
+        <p role="alert" className="text-danger mt-1.5 text-sm font-medium">
           {error}
         </p>
       ) : null}

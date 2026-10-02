@@ -16,6 +16,7 @@ export const eventConfig = {
     {
       id: "fiesta",
       title: "Fiesta",
+      icon: "copas",
       time: "22:00 hs",
       name: "Club Ejemplo",
       address: "Av. Siempre Viva 742, Córdoba",

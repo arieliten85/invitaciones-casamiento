@@ -5,6 +5,7 @@ import type { DietaryOption, DietaryValue } from "@/config/config.types";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Field, describedBy, inputClass } from "@/components/ui/field";
+import { MailIcon } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { rsvpSchema, type RsvpInput } from "../model/rsvp.schema";
 import { submitRsvp } from "../server/submit-rsvp";
@@ -119,6 +120,8 @@ export function RsvpSection({ closed, deadlineLabel, maxCompanions, dietaryOptio
       <Container size="narrow">
         <SectionHeading
           id="confirmar-titulo"
+          icon={<MailIcon />}
+          eyebrow="RSVP"
           title="Confirmá tu asistencia"
           description={closed || done ? undefined : `Por favor confirmá antes del ${deadlineLabel}.`}
         />
@@ -209,7 +212,7 @@ export function RsvpSection({ closed, deadlineLabel, maxCompanions, dietaryOptio
             </Field>
 
             <fieldset>
-              <legend className="mb-2 text-sm font-semibold">¿Vas a venir?</legend>
+              <legend className="mb-2 text-sm font-medium">¿Vas a venir?</legend>
               <div className="grid grid-cols-2 gap-3">
                 {(
                   [
@@ -232,7 +235,7 @@ export function RsvpSection({ closed, deadlineLabel, maxCompanions, dietaryOptio
                     />
                     <label
                       htmlFor={`attending-${opt.value}`}
-                      className="border-border bg-surface hover:bg-primary-soft/40 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary peer-focus-visible:outline-ring flex min-h-12 cursor-pointer items-center justify-center rounded-xl border px-4 font-semibold transition-colors peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2"
+                      className="border-border bg-surface hover:bg-primary-soft/40 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary peer-focus-visible:outline-ring flex min-h-12 cursor-pointer items-center justify-center rounded-xl border px-4 font-medium transition-colors peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2"
                     >
                       {opt.label}
                     </label>
@@ -240,7 +243,7 @@ export function RsvpSection({ closed, deadlineLabel, maxCompanions, dietaryOptio
                 ))}
               </div>
               {errors.attending ? (
-                <p role="alert" className="text-danger mt-1.5 text-sm font-semibold">
+                <p role="alert" className="text-danger mt-1.5 text-sm font-medium">
                   {errors.attending}
                 </p>
               ) : null}
@@ -263,7 +266,7 @@ export function RsvpSection({ closed, deadlineLabel, maxCompanions, dietaryOptio
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
-                        <p className="text-sm font-semibold">Acompañantes</p>
+                        <p className="text-sm font-medium">Acompañantes</p>
                         <p className="text-muted text-sm">
                           {companions.length === 0
                             ? `Podés sumar hasta ${maxCompanions}.`
@@ -369,10 +372,7 @@ export function RsvpSection({ closed, deadlineLabel, maxCompanions, dietaryOptio
             </p>
 
             {formError ? (
-              <p
-                role="alert"
-                className="bg-danger-soft text-danger rounded-xl px-4 py-3 text-sm font-semibold"
-              >
+              <p role="alert" className="bg-danger-soft text-danger rounded-xl px-4 py-3 text-sm font-medium">
                 {formError}
               </p>
             ) : null}

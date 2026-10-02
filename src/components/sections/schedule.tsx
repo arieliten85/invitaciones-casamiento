@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/container";
+import { ClockIcon, HangerIcon } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 type Item = { time: string; label: string };
@@ -12,7 +13,7 @@ export function Schedule({ items, dressCode }: Props) {
   return (
     <section aria-labelledby="cronograma-titulo" className="bg-surface-muted/60 py-20 sm:py-28">
       <Container size="narrow">
-        <SectionHeading id="cronograma-titulo" eyebrow="Programa" title="El gran día" />
+        <SectionHeading id="cronograma-titulo" eyebrow="Programa" title="El gran día" icon={<ClockIcon />} />
 
         <ol className="mx-auto max-w-md text-center">
           {items.map((item) => (
@@ -26,6 +27,9 @@ export function Schedule({ items, dressCode }: Props) {
         </ol>
 
         <div className="mx-auto mt-16 max-w-md text-center">
+          <div className="text-foreground/70 mb-3 flex justify-center">
+            <HangerIcon className="size-7" />
+          </div>
           <h3 className="text-muted text-xs font-medium tracking-[0.35em] uppercase">Código de vestimenta</h3>
           <p className="mt-3 font-serif text-2xl text-pretty">{dressCode}</p>
         </div>

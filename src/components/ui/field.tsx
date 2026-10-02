@@ -18,7 +18,7 @@ type Props = {
 export function Field({ id, label, optional, hint, error, className, children }: Props) {
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
-      <label htmlFor={id} className="text-sm font-semibold">
+      <label htmlFor={id} className="text-sm font-medium">
         {label}
         {optional ? <span className="text-muted font-normal"> (opcional)</span> : null}
       </label>
@@ -29,7 +29,7 @@ export function Field({ id, label, optional, hint, error, className, children }:
         </p>
       ) : null}
       {error ? (
-        <p id={`${id}-error`} role="alert" className="text-danger text-sm font-semibold">
+        <p id={`${id}-error`} role="alert" className="text-danger text-sm font-medium">
           {error}
         </p>
       ) : null}

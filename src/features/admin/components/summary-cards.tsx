@@ -6,7 +6,7 @@ import { dietLabel } from "./person-diet";
 function Stat({ label, value, hint }: { label: string; value: number; hint?: string }) {
   return (
     <div className="border-border bg-surface rounded-2xl border p-4 shadow-(--shadow-card) sm:p-5">
-      <dt className="text-muted text-sm font-semibold">{label}</dt>
+      <dt className="text-muted text-sm font-medium">{label}</dt>
       <dd className="text-foreground mt-1 font-serif text-4xl font-medium lining-nums">{value}</dd>
       {hint ? <p className="text-muted mt-1 text-sm">{hint}</p> : null}
     </div>
@@ -32,7 +32,7 @@ export function SummaryCards({ summary, options }: { summary: GuestSummary; opti
       </dl>
 
       <div className="border-border bg-surface rounded-2xl border p-4 shadow-(--shadow-card) sm:p-5">
-        <h2 className="text-muted text-sm font-semibold">Personas por régimen alimentario</h2>
+        <h2 className="text-muted text-sm font-medium">Personas por régimen alimentario</h2>
         <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3 lg:grid-cols-5">
           {DIETARY_VALUES.map((d) => (
             <li
@@ -40,7 +40,7 @@ export function SummaryCards({ summary, options }: { summary: GuestSummary; opti
               className="border-border/70 flex items-baseline justify-between gap-3 border-b pb-1.5"
             >
               <span>{dietLabel(d, options)}</span>
-              <span className="font-semibold tabular-nums">{summary.byDietary[d]}</span>
+              <span className="font-medium tabular-nums">{summary.byDietary[d]}</span>
             </li>
           ))}
         </ul>

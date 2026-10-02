@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { GiftIcon } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 type Props = {
@@ -36,17 +37,17 @@ function CopyRow({ label, value }: { label: string; value: string }) {
   }
 
   return (
-    <div className="border-border flex items-center justify-between gap-4 border-t py-4 first:border-t-0">
+    <div className="border-border flex flex-col items-stretch gap-3 border-t py-4 first:border-t-0 min-[400px]:flex-row min-[400px]:items-center min-[400px]:justify-between min-[400px]:gap-4">
       <div className="min-w-0 text-left">
         <p className="text-muted text-xs font-medium tracking-[0.25em] uppercase">{label}</p>
-        <p className="text-sm font-semibold break-all tabular-nums sm:text-base">{value}</p>
+        <p className="text-base font-normal tabular-nums">{value}</p>
       </div>
       <Button
         variant="outline"
         size="sm"
         onClick={copy}
         aria-label={`Copiar ${label}`}
-        className="min-w-24 shrink-0"
+        className="min-w-24 shrink-0 min-[400px]:w-auto"
       >
         {copied ? "Copiado ✓" : "Copiar"}
       </Button>
@@ -61,7 +62,13 @@ export function Gifts({ message, bank, holder, cbu, alias }: Props) {
   return (
     <section aria-labelledby="regalos-titulo" className="py-20 sm:py-28">
       <Container size="narrow">
-        <SectionHeading id="regalos-titulo" eyebrow="Con cariño" title="Regalos" description={message} />
+        <SectionHeading
+          id="regalos-titulo"
+          eyebrow="Con cariño"
+          title="Regalos"
+          icon={<GiftIcon />}
+          description={message}
+        />
         <div className="border-border bg-surface mx-auto max-w-md rounded-(--radius-card) border px-6 py-7 shadow-(--shadow-card)">
           <div className="pb-4 text-center">
             <p className="font-serif text-3xl">{bank}</p>

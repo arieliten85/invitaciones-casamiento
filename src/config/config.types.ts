@@ -15,6 +15,8 @@ export type EventPlace = {
   name: string;
   address: string;
   mapsUrl: string;
+  /** Ícono de la tarjeta: "copas" para fiestas, "pin" por defecto. */
+  icon?: "copas" | "pin";
 };
 
 export type RsvpConfig = {

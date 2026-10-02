@@ -25,7 +25,7 @@ function WhatsappLink({ digits }: { digits: string }) {
       href={whatsappLink(digits)}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-primary decoration-primary/40 hover:decoration-primary font-semibold tabular-nums underline underline-offset-4"
+      className="text-primary decoration-primary/40 hover:decoration-primary font-medium tabular-nums underline underline-offset-4"
     >
       {formatWhatsapp(digits)}
     </a>
@@ -57,16 +57,16 @@ export function GuestList({ guests, options, timeZone, onDelete }: Props) {
           <caption className="sr-only">Lista de confirmaciones</caption>
           <thead className="bg-surface-muted text-muted text-sm">
             <tr>
-              <th scope="col" className="px-5 py-3 font-semibold">
+              <th scope="col" className="px-5 py-3 font-medium">
                 Invitado
               </th>
-              <th scope="col" className="px-3 py-3 font-semibold">
+              <th scope="col" className="px-3 py-3 font-medium">
                 Personas y régimen alimentario
               </th>
-              <th scope="col" className="px-3 py-3 font-semibold">
+              <th scope="col" className="px-3 py-3 font-medium">
                 Mensaje
               </th>
-              <th scope="col" className="px-3 py-3 font-semibold">
+              <th scope="col" className="px-3 py-3 font-medium">
                 Respondió
               </th>
               <th scope="col" className="px-5 py-3">
@@ -78,7 +78,7 @@ export function GuestList({ guests, options, timeZone, onDelete }: Props) {
             {guests.map((g) => (
               <tr key={g.id} className="align-top">
                 <th scope="row" className="px-5 py-4 font-normal">
-                  <p className="font-semibold">
+                  <p className="font-medium">
                     {g.firstName} {g.lastName}
                   </p>
                   <p className="mt-0.5">
@@ -120,7 +120,7 @@ export function GuestList({ guests, options, timeZone, onDelete }: Props) {
           <li key={g.id} className="border-border bg-surface rounded-2xl border p-4 shadow-(--shadow-card)">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-lg font-semibold">
+                <p className="text-lg font-medium">
                   {g.firstName} {g.lastName}
                 </p>
                 <p>

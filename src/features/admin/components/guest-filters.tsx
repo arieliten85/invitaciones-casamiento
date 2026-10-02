@@ -21,7 +21,7 @@ const ATTENDING: Array<{ value: AttendingFilter; label: string }> = [
 ];
 
 const chip =
-  "inline-flex min-h-10 cursor-pointer select-none items-center rounded-full border border-border bg-surface px-4 text-sm font-semibold transition-colors hover:bg-primary-soft/40 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring";
+  "inline-flex min-h-10 cursor-pointer select-none items-center rounded-full border border-border bg-surface px-4 text-sm font-medium transition-colors hover:bg-primary-soft/40 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring";
 
 export function GuestFilters({ filters, options, onChange, onClear }: Props) {
   function toggleDiet(value: DietaryValue, checked: boolean) {
@@ -35,7 +35,7 @@ export function GuestFilters({ filters, options, onChange, onClear }: Props) {
       className="border-border bg-surface flex flex-col gap-5 rounded-2xl border p-4 shadow-(--shadow-card) sm:p-5"
     >
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="search" className="text-sm font-semibold">
+        <label htmlFor="search" className="text-sm font-medium">
           Buscar por nombre o apellido
         </label>
         <input
@@ -51,7 +51,7 @@ export function GuestFilters({ filters, options, onChange, onClear }: Props) {
 
       <div className="grid gap-5 lg:grid-cols-2">
         <fieldset>
-          <legend className="mb-2 text-sm font-semibold">Asistencia</legend>
+          <legend className="mb-2 text-sm font-medium">Asistencia</legend>
           <div className="flex flex-wrap gap-2">
             {ATTENDING.map((opt) => (
               <span key={opt.value} className="relative">
@@ -72,7 +72,7 @@ export function GuestFilters({ filters, options, onChange, onClear }: Props) {
         </fieldset>
 
         <fieldset>
-          <legend className="mb-2 text-sm font-semibold">Régimen alimentario</legend>
+          <legend className="mb-2 text-sm font-medium">Régimen alimentario</legend>
           <div className="flex flex-wrap gap-2">
             {options.map((opt) => (
               <span key={opt.value} className="relative">

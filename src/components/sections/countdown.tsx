@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { Container } from "@/components/ui/container";
+import { HourglassIcon } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 type Props = {
@@ -51,7 +52,12 @@ export function Countdown({ target, calendarHref }: Props) {
   return (
     <section aria-labelledby="cuenta-titulo" className="bg-surface-muted/60 py-20 sm:py-28">
       <Container size="narrow">
-        <SectionHeading id="cuenta-titulo" eyebrow="Cuenta regresiva" title="Falta poco" />
+        <SectionHeading
+          id="cuenta-titulo"
+          eyebrow="Cuenta regresiva"
+          title="Falta poco"
+          icon={<HourglassIcon />}
+        />
 
         {finished ? (
           <p className="text-foreground text-center font-serif text-3xl italic">¡Hoy es el gran día!</p>

@@ -19,7 +19,7 @@ export function dietLabel(value: DietaryValue, options: DietaryOption[]): string
 export function PersonDiet({ person, options }: { person: GuestPerson; options: DietaryOption[] }) {
   return (
     <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-      <span className="font-semibold">{person.name}</span>
+      <span className="font-medium">{person.name}</span>
       {person.dietary.map((d) => (
         <Badge key={d} tone={TONE[d]}>
           {d === "otra" && person.dietaryOther ? `Otra: ${person.dietaryOther}` : dietLabel(d, options)}

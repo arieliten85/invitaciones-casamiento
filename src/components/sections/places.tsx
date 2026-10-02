@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { ICONS, type PlaceIconName } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 type Place = {
@@ -9,6 +10,7 @@ type Place = {
   name: string;
   address: string;
   mapsUrl: string;
+  icon?: PlaceIconName;
 };
 
 export function Places({ places, title = "Dónde y cuándo" }: { places: Place[]; title?: string }) {
@@ -29,6 +31,10 @@ export function Places({ places, title = "Dónde y cuándo" }: { places: Place[]
                 (i > 0 ? "sm:border-border sm:border-l" : "")
               }
             >
+              {(() => {
+                const PlaceIcon = ICONS[p.icon ?? "pin"];
+                return <PlaceIcon className="text-foreground/70 mb-4 size-11" />;
+              })()}
               <h3 className="text-muted text-xs font-medium tracking-[0.35em] uppercase">{p.title}</h3>
               <p className="mt-4 font-serif text-5xl font-medium lining-nums">{p.time}</p>
               <p className="mt-6 text-lg">{p.name}</p>
