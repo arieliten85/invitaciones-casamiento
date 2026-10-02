@@ -16,7 +16,11 @@ export function Places({ places, title = "Dónde y cuándo" }: { places: Place[]
     <section aria-labelledby="lugares-titulo" className="py-20 sm:py-28">
       <Container>
         <SectionHeading id="lugares-titulo" eyebrow="El lugar" title={title} />
-        <div className="mx-auto grid max-w-4xl gap-12 sm:grid-cols-2 sm:gap-0">
+        <div
+          className={
+            "mx-auto grid gap-12 sm:gap-0 " + (places.length > 1 ? "max-w-4xl sm:grid-cols-2" : "max-w-xl")
+          }
+        >
           {places.map((p, i) => (
             <article
               key={p.id}

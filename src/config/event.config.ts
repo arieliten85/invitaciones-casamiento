@@ -10,24 +10,16 @@ export const eventConfig = {
   locale: "es-AR",
   timeZone: "America/Argentina/Buenos_Aires",
   couple: { first: "Lucía", second: "Martín" },
-  date: "2027-03-20T18:30:00-03:00",
+  date: "2027-03-20T22:00:00-03:00",
 
   places: [
     {
-      id: "ceremonia",
-      title: "Ceremonia",
-      time: "18:30 hs",
-      name: "Parroquia Nuestra Señora del Carmen",
-      address: "Av. Siempre Viva 742, Córdoba",
-      mapsUrl: "https://maps.google.com/?q=Cordoba+Argentina",
-    },
-    {
       id: "fiesta",
       title: "Fiesta",
-      time: "21:00 hs",
-      name: "Quinta Los Aromos",
-      address: "Camino a Villa Allende km 5, Córdoba",
-      mapsUrl: "https://maps.google.com/?q=Villa+Allende+Cordoba",
+      time: "22:00 hs",
+      name: "Club Ejemplo",
+      address: "Av. Siempre Viva 742, Córdoba",
+      mapsUrl: "https://maps.google.com/?q=Cordoba+Argentina",
     },
   ],
 

@@ -22,13 +22,13 @@ export const invitationContent = {
     "Dos almas que se encontraron en el camino y eligieron recorrerlo juntas para siempre. Queremos que seas parte de este día tan especial.",
 
   schedule: [
-    { time: "18:30", label: "Ceremonia" },
-    { time: "20:00", label: "Recepción y brindis" },
-    { time: "21:00", label: "Cena" },
-    { time: "23:00", label: "Fiesta y baile" },
+    { time: "22:00", label: "Recepción y brindis" },
+    { time: "23:00", label: "Cena" },
+    { time: "00:30", label: "Fiesta y baile" },
+    { time: "04:00", label: "Cierre" },
   ],
 
-  dressCode: "Elegante sport. Los tonos pastel son bienvenidos.",
+  dressCode: "Elegante sport.",
 
   gift: {
     enabled: true,
