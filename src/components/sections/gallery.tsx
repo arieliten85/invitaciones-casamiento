@@ -2,8 +2,11 @@ import { Container } from "@/components/ui/container";
 import { Photo } from "@/components/ui/photo";
 import { HeartIcon } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { GalleryViewer } from "./gallery-viewer";
 
-export function Gallery({ photos }: { photos: Array<{ src?: string; alt: string }> }) {
+type Img = { src?: string; alt: string };
+
+export function Gallery({ photos, more = [] }: { photos: Img[]; more?: Img[] }) {
   if (photos.length === 0) return null;
   return (
     <section aria-labelledby="galeria-titulo" className="py-20 sm:py-28">
@@ -28,6 +31,11 @@ export function Gallery({ photos }: { photos: Array<{ src?: string; alt: string 
             </li>
           ))}
         </ul>
+        {more.length > 0 ? (
+          <div className="mt-10 text-center">
+            <GalleryViewer photos={[...photos, ...more]} />
+          </div>
+        ) : null}
       </Container>
     </section>
   );

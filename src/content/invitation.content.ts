@@ -35,6 +35,23 @@ export const invitationContent = {
         credit: "Jonathan Borba",
       },
     ],
+    more: [
+      {
+        src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1600&q=80",
+        alt: "Los novios abrazados",
+        credit: "Eugenia Pan'kiv",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?auto=format&fit=crop&w=1600&q=80",
+        alt: "Los novios compartiendo un beso",
+        credit: "Nikita Shirokov",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?auto=format&fit=crop&w=1600&q=80",
+        alt: "La novia con su vestido",
+        credit: "Jakob Owens",
+      },
+    ],
   },
 
   heroEyebrow: "¡Nos casamos!",

@@ -21,7 +21,12 @@ export default function Home() {
   const content = invitationContent;
   const zone = { timeZone };
 
-  const allPhotos = [content.photos.hero, content.photos.band, ...content.photos.gallery];
+  const allPhotos = [
+    content.photos.hero,
+    content.photos.band,
+    ...content.photos.gallery,
+    ...(content.photos.more ?? []),
+  ];
   const credits = allPhotos.flatMap((p) => (p.src && p.credit ? [p.credit] : []));
 
   const closed = isRsvpClosed(rsvp);
@@ -54,7 +59,7 @@ export default function Home() {
         <PhotoBand photo={content.photos.band} />
         <Places places={places} />
         <Schedule items={content.schedule} dressCode={content.dressCode} />
-        <Gallery photos={content.photos.gallery} />
+        <Gallery photos={content.photos.gallery} more={content.photos.more} />
         <RsvpSection
           closed={closed}
           deadlineLabel={formatDayMonth(rsvp.deadline, zone)}

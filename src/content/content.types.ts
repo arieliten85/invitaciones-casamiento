@@ -23,6 +23,8 @@ export type InvitationContent = {
     hero: PhotoContent;
     band: PhotoContent;
     gallery: PhotoContent[];
+    /** Fotos extra que se ven en «Ver todas las fotos». Opcional: sin fotos, no aparece el botón. */
+    more?: PhotoContent[];
   };
   /** Texto corto sobre los nombres en la portada. */
   heroEyebrow: string;
