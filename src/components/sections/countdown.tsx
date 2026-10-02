@@ -49,23 +49,20 @@ export function Countdown({ target, calendarHref }: Props) {
   ];
 
   return (
-    <section aria-labelledby="cuenta-titulo" className="bg-surface/70 py-16 sm:py-24">
+    <section aria-labelledby="cuenta-titulo" className="bg-surface-muted/60 py-20 sm:py-28">
       <Container size="narrow">
-        <SectionHeading id="cuenta-titulo" title="Falta poco" />
+        <SectionHeading id="cuenta-titulo" eyebrow="Cuenta regresiva" title="Falta poco" />
 
         {finished ? (
-          <p className="text-primary text-center font-serif text-3xl italic">¡Hoy es el gran día!</p>
+          <p className="text-foreground text-center font-serif text-3xl italic">¡Hoy es el gran día!</p>
         ) : (
-          <div role="timer" aria-label="Cuenta regresiva" className="grid grid-cols-4 gap-2 sm:gap-5">
+          <div role="timer" aria-label="Cuenta regresiva" className="grid grid-cols-4 gap-3 sm:gap-8">
             {tiles.map((t) => (
-              <div
-                key={t.label}
-                className="border-border bg-surface rounded-2xl border px-1 py-4 text-center shadow-(--shadow-card) sm:py-7"
-              >
-                <span className="text-primary block font-serif text-3xl font-medium lining-nums tabular-nums sm:text-5xl">
+              <div key={t.label} className="border-border border-t px-1 pt-5 text-center sm:pt-7">
+                <span className="text-foreground block font-serif text-4xl font-medium lining-nums tabular-nums sm:text-6xl">
                   {t.value}
                 </span>
-                <span className="text-muted mt-1 block text-[0.65rem] font-semibold tracking-widest uppercase sm:text-xs">
+                <span className="text-muted mt-2 block text-[0.65rem] font-medium tracking-[0.15em] uppercase sm:text-xs sm:tracking-[0.3em]">
                   {t.label}
                 </span>
               </div>
@@ -78,7 +75,7 @@ export function Countdown({ target, calendarHref }: Props) {
             href={calendarHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary decoration-primary/40 hover:decoration-primary font-semibold underline underline-offset-4"
+            className="text-foreground decoration-foreground/40 hover:decoration-foreground text-sm font-medium tracking-[0.18em] uppercase underline underline-offset-8"
           >
             Agregar a mi calendario
           </a>

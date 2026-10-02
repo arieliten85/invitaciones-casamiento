@@ -44,3 +44,15 @@ export function formatShortDateTime(iso: string, { timeZone }: Zone) {
     hour12: false,
   }).format(new Date(iso));
 }
+
+/** Fecha compacta tipo "20 · 03 · 2027". */
+export function formatNumericDate(iso: string, { timeZone }: Zone) {
+  const parts = new Intl.DateTimeFormat(LOCALE, {
+    timeZone,
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).formatToParts(new Date(iso));
+  const pick = (type: string) => parts.find((x) => x.type === type)?.value ?? "";
+  return `${pick("day")} · ${pick("month")} · ${pick("year")}`;
+}

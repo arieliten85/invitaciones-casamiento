@@ -3,36 +3,35 @@
 
 @theme {
   /* Superficies */
-  --color-background: #f6f1ea; /* papel cálido */
-  --color-surface: #fffdf9; /* tarjetas */
-  --color-surface-muted: #efe7dd;
+  --color-background: #faf8f4; /* blanco hueso */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1ede6;
 
   /* Texto */
-  --color-foreground: #3b3540;
-  --color-muted: #6c6572;
+  --color-foreground: #1f1d1b; /* negro suave */
+  --color-muted: #6b665f;
   --color-on-primary: #ffffff;
 
   /* Marca */
-  --color-primary: #8a5a73; /* malva profundo: botones y acentos con buen contraste */
-  --color-primary-hover: #744a61;
-  --color-primary-soft: #ecd3da; /* rosa empolvado */
-  --color-sage: #7a9a82;
-  --color-sage-soft: #cfdccf;
-  --color-gold: #b88f3e;
+  --color-primary: #1f1d1b;
+  --color-primary-hover: #3a3733;
+  --color-primary-soft: #e9e4db; /* arena */
+  --color-sage: #8a8f84;
+  --color-sage-soft: #e3e5df;
+  --color-gold: #a08a5c; /* detalle fino, muy poco uso */
 
   /* Estados */
-  --color-border: #e2d8cc;
-  --color-ring: #8a5a73;
-  --color-danger: #a3342f;
-  --color-danger-soft: #f6dedc;
-  --color-success: #3f7a52;
-  --color-success-soft: #dcefe2;
+  --color-border: #e3ddd2;
+  --color-ring: #1f1d1b;
+  --color-danger: #9c2f2a;
+  --color-danger-soft: #f5e0de;
+  --color-success: #3f6b4d;
+  --color-success-soft: #e0eee4;
 
   /* Tipografías (las variables las define next/font en src/theme/fonts.ts) */
-  --font-script: var(--font-dancing), cursive;
   --font-serif: var(--font-cormorant), Georgia, serif;
-  --font-sans: var(--font-quicksand), system-ui, sans-serif;
+  --font-sans: var(--font-jost), system-ui, sans-serif;
 
-  --radius-card: 1.25rem;
-  --shadow-card: 0 1px 2px rgb(59 53 64 / 0.05), 0 12px 32px -12px rgb(59 53 64 / 0.18);
+  --radius-card: 0.25rem;
+  --shadow-card: 0 1px 2px rgb(31 29 27 / 0.04), 0 18px 40px -24px rgb(31 29 27 / 0.22);
 }

@@ -5,34 +5,23 @@ import localFont from "next/font/local";
  * Se sirven desde el propio sitio: sin pedidos a Google y con build reproducible.
  */
 
-export const dancing = localFont({
-  variable: "--font-dancing",
-  display: "swap",
-  src: [
-    { path: "./fonts/dancing-script-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/dancing-script-latin-600-normal.woff2", weight: "600", style: "normal" },
-  ],
-});
-
 export const cormorant = localFont({
   variable: "--font-cormorant",
   display: "swap",
   src: [
     { path: "./fonts/cormorant-garamond-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/cormorant-garamond-latin-600-normal.woff2", weight: "600", style: "normal" },
     { path: "./fonts/cormorant-garamond-latin-500-italic.woff2", weight: "500", style: "italic" },
-    { path: "./fonts/cormorant-garamond-latin-600-italic.woff2", weight: "600", style: "italic" },
   ],
 });
 
-export const quicksand = localFont({
-  variable: "--font-quicksand",
+export const jost = localFont({
+  variable: "--font-jost",
   display: "swap",
   src: [
-    { path: "./fonts/quicksand-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/quicksand-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/quicksand-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/jost-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/jost-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jost-latin-500-normal.woff2", weight: "500", style: "normal" },
   ],
 });
 
-export const fontVariables = `${dancing.variable} ${cormorant.variable} ${quicksand.variable}`;
+export const fontVariables = `${cormorant.variable} ${jost.variable}`;

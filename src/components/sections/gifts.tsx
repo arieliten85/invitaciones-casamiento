@@ -38,7 +38,7 @@ function CopyRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="border-border flex items-center justify-between gap-4 border-t py-4 first:border-t-0">
       <div className="min-w-0 text-left">
-        <p className="text-muted text-xs font-semibold tracking-[0.2em] uppercase">{label}</p>
+        <p className="text-muted text-xs font-medium tracking-[0.25em] uppercase">{label}</p>
         <p className="text-sm font-semibold break-all tabular-nums sm:text-base">{value}</p>
       </div>
       <Button
@@ -59,12 +59,12 @@ function CopyRow({ label, value }: { label: string; value: string }) {
 
 export function Gifts({ message, bank, holder, cbu, alias }: Props) {
   return (
-    <section aria-labelledby="regalos-titulo" className="py-16 sm:py-24">
+    <section aria-labelledby="regalos-titulo" className="py-20 sm:py-28">
       <Container size="narrow">
-        <SectionHeading id="regalos-titulo" title="Regalos" description={message} />
-        <div className="border-border bg-surface mx-auto max-w-md rounded-(--radius-card) border px-6 py-6 shadow-(--shadow-card)">
+        <SectionHeading id="regalos-titulo" eyebrow="Con cariño" title="Regalos" description={message} />
+        <div className="border-border bg-surface mx-auto max-w-md rounded-(--radius-card) border px-6 py-7 shadow-(--shadow-card)">
           <div className="pb-4 text-center">
-            <p className="font-serif text-2xl italic">{bank}</p>
+            <p className="font-serif text-3xl">{bank}</p>
             <p className="text-muted">{holder}</p>
           </div>
           <CopyRow label="CBU" value={cbu} />

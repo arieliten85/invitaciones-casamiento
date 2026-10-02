@@ -1,11 +1,8 @@
-import { FloralSprig } from "@/components/ui/botanical";
-
 export function Footer({ text, names }: { text: string; names: string }) {
   return (
-    <footer className="relative overflow-hidden px-5 pt-12 pb-16 text-center">
-      <FloralSprig className="mx-auto w-20" />
-      <p className="mt-3 font-serif text-2xl text-pretty italic">{text}</p>
-      <p className="font-script text-primary mt-2 text-4xl">{names}</p>
+    <footer className="border-border border-t px-5 py-16 text-center">
+      <p className="font-serif text-2xl text-pretty">{text}</p>
+      <p className="text-muted mt-4 text-xs font-medium tracking-[0.35em] uppercase">{names}</p>
     </footer>
   );
 }

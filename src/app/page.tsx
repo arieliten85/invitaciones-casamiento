@@ -1,7 +1,9 @@
 import { Countdown } from "@/components/sections/countdown";
+import { Gallery } from "@/components/sections/gallery";
 import { Footer } from "@/components/sections/footer";
 import { Gifts } from "@/components/sections/gifts";
 import { Hero } from "@/components/sections/hero";
+import { PhotoBand } from "@/components/sections/photo-band";
 import { Places } from "@/components/sections/places";
 import { Schedule } from "@/components/sections/schedule";
 import { Welcome } from "@/components/sections/welcome";
@@ -9,7 +11,7 @@ import { eventConfig } from "@/config/event.config";
 import { invitationContent } from "@/content/invitation.content";
 import { RsvpSection, isRsvpClosed } from "@/features/rsvp";
 import { googleCalendarLink } from "@/lib/calendar-link";
-import { formatDayMonth, formatLongDate, formatTime } from "@/lib/format-date";
+import { formatDayMonth, formatNumericDate } from "@/lib/format-date";
 
 // El servidor es la autoridad sobre el plazo; la página se refresca cada 5 minutos.
 export const revalidate = 300;
@@ -28,8 +30,9 @@ export default function Home() {
         tagline={content.tagline}
         first={couple.first}
         second={couple.second}
-        dateLabel={formatLongDate(date, zone)}
-        timeLabel={formatTime(date, zone)}
+        dateLabel={formatNumericDate(date, zone)}
+        placeLabel={firstPlace ? firstPlace.name : ""}
+        photo={content.photos.hero}
         cta={{ label: "Confirmar asistencia", href: "#confirmar" }}
       />
       <main>
@@ -43,8 +46,10 @@ export default function Home() {
             location: firstPlace ? `${firstPlace.name}, ${firstPlace.address}` : "",
           })}
         />
+        <PhotoBand photo={content.photos.band} />
         <Places places={places} />
         <Schedule items={content.schedule} dressCode={content.dressCode} />
+        <Gallery photos={content.photos.gallery} />
         <RsvpSection
           closed={closed}
           deadlineLabel={formatDayMonth(rsvp.deadline, zone)}
