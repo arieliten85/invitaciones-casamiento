@@ -14,16 +14,13 @@ export function Schedule({ items, dressCode }: Props) {
       <Container size="narrow">
         <SectionHeading id="cronograma-titulo" eyebrow="Programa" title="El gran día" />
 
-        <ol className="mx-auto max-w-md">
+        <ol className="mx-auto max-w-md text-center">
           {items.map((item) => (
-            <li
-              key={item.time + item.label}
-              className="border-border grid grid-cols-[5.5rem_1fr] items-baseline gap-4 border-t py-5 last:border-b"
-            >
-              <span className="text-muted text-sm font-medium tracking-[0.2em] lining-nums">
+            <li key={item.time + item.label} className="border-border border-t py-6 last:border-b">
+              <span className="text-muted block text-sm font-medium tracking-[0.3em] lining-nums">
                 {item.time} hs
               </span>
-              <span className="font-serif text-2xl">{item.label}</span>
+              <span className="mt-1 block font-serif text-3xl">{item.label}</span>
             </li>
           ))}
         </ol>

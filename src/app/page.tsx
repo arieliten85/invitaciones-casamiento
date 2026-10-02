@@ -21,6 +21,9 @@ export default function Home() {
   const content = invitationContent;
   const zone = { timeZone };
 
+  const allPhotos = [content.photos.hero, content.photos.band, ...content.photos.gallery];
+  const credits = allPhotos.flatMap((p) => (p.src && p.credit ? [p.credit] : []));
+
   const closed = isRsvpClosed(rsvp);
   const firstPlace = places[0];
 
@@ -66,7 +69,7 @@ export default function Home() {
           />
         ) : null}
       </main>
-      <Footer text={content.footer} names={`${couple.first} & ${couple.second}`} />
+      <Footer text={content.footer} names={`${couple.first} & ${couple.second}`} credits={credits} />
     </>
   );
 }

@@ -14,6 +14,8 @@ export type PhotoContent = {
   /** Ruta pública, por ejemplo "/brand/photos/portada.jpg". */
   src?: string;
   alt: string;
+  /** Crédito del fotógrafo, si corresponde (fotos de stock). */
+  credit?: string;
 };
 
 export type InvitationContent = {
