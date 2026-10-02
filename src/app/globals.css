@@ -49,6 +49,35 @@
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Zoom lento de la foto de portada */
+@keyframes drift {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@utility animate-drift {
+  animation: drift 14s ease-out both;
+}
+
+/* Flecha que invita a bajar */
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@utility animate-nudge {
+  animation: nudge 2.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

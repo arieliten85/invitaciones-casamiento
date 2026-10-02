@@ -56,3 +56,8 @@ export function formatNumericDate(iso: string, { timeZone }: Zone) {
   const pick = (type: string) => parts.find((x) => x.type === type)?.value ?? "";
   return `${pick("day")} · ${pick("month")} · ${pick("year")}`;
 }
+
+/** Día de la semana, por ejemplo "Sábado". */
+export function formatWeekday(iso: string, { timeZone }: Zone) {
+  return capitalize(new Intl.DateTimeFormat(LOCALE, { timeZone, weekday: "long" }).format(new Date(iso)));
+}

@@ -11,7 +11,7 @@ import { eventConfig } from "@/config/event.config";
 import { invitationContent } from "@/content/invitation.content";
 import { RsvpSection, isRsvpClosed } from "@/features/rsvp";
 import { googleCalendarLink } from "@/lib/calendar-link";
-import { formatDayMonth, formatNumericDate } from "@/lib/format-date";
+import { formatDayMonth, formatNumericDate, formatTime, formatWeekday } from "@/lib/format-date";
 
 // El servidor es la autoridad sobre el plazo; la página se refresca cada 5 minutos.
 export const revalidate = 300;
@@ -35,6 +35,8 @@ export default function Home() {
         first={couple.first}
         second={couple.second}
         dateLabel={formatNumericDate(date, zone)}
+        dateDetail={`${formatWeekday(date, zone)} · ${formatTime(date, zone)}`}
+        place={firstPlace ? { name: firstPlace.name, href: "#lugar" } : undefined}
         photo={content.photos.hero}
         cta={{ label: "Confirmar asistencia", href: "#confirmar" }}
       />

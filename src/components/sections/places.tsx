@@ -15,7 +15,7 @@ type Place = {
 
 export function Places({ places, title = "Dónde y cuándo" }: { places: Place[]; title?: string }) {
   return (
-    <section aria-labelledby="lugares-titulo" className="py-20 sm:py-28">
+    <section id="lugar" aria-labelledby="lugares-titulo" className="scroll-mt-4 py-20 sm:py-28">
       <Container>
         <SectionHeading id="lugares-titulo" eyebrow="El lugar" title={title} />
         <div
