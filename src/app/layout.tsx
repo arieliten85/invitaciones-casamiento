@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DemoBanner } from "@/components/ui/demo-banner";
 import { eventConfig } from "@/config/event.config";
-import { isDemoMode } from "@/lib/demo-mode";
 import { fontVariables } from "@/theme/fonts";
 import "./globals.css";
 
@@ -30,7 +28,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-AR" className={`${fontVariables} h-full`}>
-      <body className="min-h-full">      
+      <body className="min-h-full">
         {children}
       </body>
     </html>
