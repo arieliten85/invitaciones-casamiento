@@ -30,11 +30,11 @@ export default function Home() {
   return (
     <>
       <Hero
+        eyebrow={content.heroEyebrow}
         tagline={content.tagline}
         first={couple.first}
         second={couple.second}
         dateLabel={formatNumericDate(date, zone)}
-        placeLabel={firstPlace ? firstPlace.name : ""}
         photo={content.photos.hero}
         cta={{ label: "Confirmar asistencia", href: "#confirmar" }}
       />

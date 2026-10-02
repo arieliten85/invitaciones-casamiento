@@ -37,7 +37,8 @@ export const invitationContent = {
     ],
   },
 
-  tagline: "Con amor y alegría los invitamos a compartir",
+  heroEyebrow: "¡Nos casamos!",
+  tagline: "Con amor y alegría los invitamos a compartir nuestro casamiento",
   welcome:
     "Dos almas que se encontraron en el camino y eligieron recorrerlo juntas para siempre. Queremos que seas parte de este día tan especial.",
 

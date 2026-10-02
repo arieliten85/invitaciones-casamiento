@@ -31,9 +31,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-AR" className={`${fontVariables} h-full`}>
       <body className="min-h-full">
-        {isDemoMode ? (
-          <DemoBanner text="Versión de demostración: los datos que cargues no se guardan." />
-        ) : null}
         {children}
       </body>
     </html>

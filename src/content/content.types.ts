@@ -24,6 +24,9 @@ export type InvitationContent = {
     band: PhotoContent;
     gallery: PhotoContent[];
   };
+  /** Texto corto sobre los nombres en la portada. */
+  heroEyebrow: string;
+  /** Frase de invitación bajo la fecha, en la portada. */
   tagline: string;
   welcome: string;
   schedule: ScheduleItem[];
