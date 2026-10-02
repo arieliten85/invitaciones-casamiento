@@ -1,0 +1,38 @@
+/* Tokens semánticos del tema. Los componentes usan estos nombres (bg-surface, text-muted…),
+   nunca colores sueltos. Para cambiar el estilo del evento se editan solo estos valores. */
+
+@theme {
+  /* Superficies */
+  --color-background: #f6f1ea; /* papel cálido */
+  --color-surface: #fffdf9; /* tarjetas */
+  --color-surface-muted: #efe7dd;
+
+  /* Texto */
+  --color-foreground: #3b3540;
+  --color-muted: #6c6572;
+  --color-on-primary: #ffffff;
+
+  /* Marca */
+  --color-primary: #8a5a73; /* malva profundo: botones y acentos con buen contraste */
+  --color-primary-hover: #744a61;
+  --color-primary-soft: #ecd3da; /* rosa empolvado */
+  --color-sage: #7a9a82;
+  --color-sage-soft: #cfdccf;
+  --color-gold: #b88f3e;
+
+  /* Estados */
+  --color-border: #e2d8cc;
+  --color-ring: #8a5a73;
+  --color-danger: #a3342f;
+  --color-danger-soft: #f6dedc;
+  --color-success: #3f7a52;
+  --color-success-soft: #dcefe2;
+
+  /* Tipografías (las variables las define next/font en src/theme/fonts.ts) */
+  --font-script: var(--font-dancing), cursive;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-quicksand), system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1px 2px rgb(59 53 64 / 0.05), 0 12px 32px -12px rgb(59 53 64 / 0.18);
+}
