@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f1ea",
+  themeColor: "#e9e4da",
   width: "device-width",
   initialScale: 1,
 };
@@ -28,9 +28,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es-AR" className={`${fontVariables} h-full`}>
-      <body className="min-h-full">
-        {children}
-      </body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

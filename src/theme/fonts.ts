@@ -14,14 +14,27 @@ export const cormorant = localFont({
   ],
 });
 
-export const jost = localFont({
-  variable: "--font-jost",
+export const montserrat = localFont({
+  variable: "--font-montserrat",
   display: "swap",
   src: [
-    { path: "./fonts/jost-latin-300-normal.woff2", weight: "300", style: "normal" },
-    { path: "./fonts/jost-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/jost-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/montserrat-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/montserrat-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/montserrat-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/montserrat-latin-600-normal.woff2", weight: "600", style: "normal" },
   ],
 });
 
-export const fontVariables = `${cormorant.variable} ${jost.variable}`;
+export const baskerville = localFont({
+  variable: "--font-baskerville",
+  display: "swap",
+  src: [{ path: "./fonts/libre-baskerville-latin-400-normal.woff2", weight: "400", style: "normal" }],
+});
+
+export const jost = localFont({
+  variable: "--font-jost",
+  display: "swap",
+  src: [{ path: "./fonts/jost-latin-400-normal.woff2", weight: "400", style: "normal" }],
+});
+
+export const fontVariables = `${cormorant.variable} ${montserrat.variable} ${baskerville.variable} ${jost.variable}`;

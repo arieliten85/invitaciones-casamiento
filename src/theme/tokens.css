@@ -3,7 +3,7 @@
 
 @theme {
   /* Superficies */
-  --color-background: #faf8f4; /* blanco hueso */
+  --color-background: #ffffff;
   --color-surface: #ffffff;
   --color-surface-muted: #f1ede6;
 
@@ -16,7 +16,10 @@
   --color-primary: #1f1d1b;
   --color-primary-hover: #3a3733;
   --color-primary-soft: #e9e4db; /* arena */
-  --color-sage: #8a8f84;
+  --color-sage: #759d89; /* verde de los botones */
+  --color-sage-hover: #668b78;
+  --color-blush: #e6ddd6; /* franjas rosado-beige */
+  --color-ink: #333333;
   --color-sage-soft: #e3e5df;
   --color-gold: #a08a5c; /* detalle fino, muy poco uso */
 
@@ -29,8 +32,10 @@
   --color-success-soft: #e0eee4;
 
   /* Tipografías (las variables las define next/font en src/theme/fonts.ts) */
+  --font-display: var(--font-baskerville), Georgia, serif;
+  --font-hero: var(--font-jost), system-ui, sans-serif;
   --font-serif: var(--font-cormorant), Georgia, serif;
-  --font-sans: var(--font-jost), system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
 
   --radius-card: 0.25rem;
   --shadow-card: 0 1px 2px rgb(31 29 27 / 0.04), 0 18px 40px -24px rgb(31 29 27 / 0.22);
