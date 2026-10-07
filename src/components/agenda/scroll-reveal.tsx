@@ -22,6 +22,13 @@ const SELECTOR = [
  */
 export function ScrollReveal() {
   useEffect(() => {
+    // La invitación siempre arranca arriba, en el hero: sin restaurar el scroll al recargar.
+    const prevRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    if (window.location.hash)
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+
     const root = document.documentElement;
     const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const items = Array.from(document.querySelectorAll<HTMLElement>(SELECTOR));
@@ -60,6 +67,7 @@ export function ScrollReveal() {
       io.disconnect();
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(frame);
+      window.history.scrollRestoration = prevRestoration;
       delete root.dataset.reveal;
       items.forEach((el) => el.classList.remove("is-in"));
     };
