@@ -290,12 +290,12 @@ export default function Home() {
                   <li
                     key={p.src}
                     className="group relative overflow-hidden rounded-[1.5rem] last:flex-1"
-                    style={{ aspectRatio: "frame" in p ? p.frame : p.ratio }}
+                    style={{ aspectRatio: p.frame ?? p.ratio }}
                   >
                     <Photo
                       src={p.src}
                       alt={p.alt}
-                      position={"focus" in p ? p.focus : undefined}
+                      position={p.focus}
                       sizes="(min-width: 768px) 22rem, 50vw"
                       className="transition-transform duration-700 group-hover:scale-105"
                     />

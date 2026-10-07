@@ -1,72 +1,66 @@
 /**
- * Datos reales de la invitación (novios, fecha, lugar, dress code, textos de la tarjeta y la dinámica
- * de la noche que contó Florencia) y los dos formularios de Google.
- * Siguen siendo DE EJEMPLO o A CONFIRMAR: alias y datos bancarios.
+ * VERSIÓN DEMO (rama feat/v3): todos los datos son FICTICIOS (fecha, lugares, civil, banco, alias).
+ * Los formularios de Google son los propios del autor (no tienen relación con la pareja).
+ * Las fotos son de stock libre (Pexels), de una misma sesión de pareja.
  */
+type Photo = { src: string; alt: string; ratio: number; frame?: number; focus?: string };
+type PhotoSet = { strip: Photo[]; gallery: Photo[]; more: Photo[] };
+
 export const agenda = {
   couple: { first: "Florencia", second: "Matías" },
   /** Frase corta debajo de «Nuestra Boda» en la portada. */
   tagline: "Una noche para celebrar y bailar",
-  /** Viernes 11 de diciembre de 2026, 21:00 (hora de Argentina); termina a las 04:00. */
-  date: "2026-12-11T21:00:00-03:00",
+  /** Sábado 20 de marzo de 2027, 21:00 (hora de Argentina); termina a las 04:00. Fecha ficticia. */
+  date: "2027-03-20T21:00:00-03:00",
   timeZone: "America/Argentina/Buenos_Aires",
   durationHours: 7,
 
-  /** Fotos reales en public/brand/photos. `gallery` se ve en la página; `more` se suma al tocar «Ver todas las fotos». */
+  /**
+   * Fotos de stock libre (Pexels, uso libre sin atribución), todas de la misma sesión de pareja.
+   * `strip` va en la bienvenida; `gallery` en la galería; `more` se suma al tocar «Ver todas las fotos».
+   */
   photos: {
     strip: [
-      { src: "/brand/photos/lago.webp", alt: "Florencia y Matías junto al lago", ratio: 0.9593 },
       {
-        src: "/brand/photos/abrazo-vinedo.webp",
-        alt: "Florencia y Matías abrazados en el viñedo",
-        ratio: 0.7521,
+        src: "https://images.pexels.com/photos/31107090/pexels-photo-31107090.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja abrazada con un ramo de flores",
+        ratio: 0.6667,
       },
       {
-        src: "/brand/photos/pergola.webp",
-        alt: "Florencia y Matías bajo la pérgola iluminada",
-        ratio: 0.6373,
+        src: "https://images.pexels.com/photos/31107091/pexels-photo-31107091.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja posando entre flores",
+        ratio: 0.6667,
+      },
+      {
+        src: "https://images.pexels.com/photos/31107092/pexels-photo-31107092.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja en una sesión al aire libre",
+        ratio: 0.6667,
       },
     ],
-    /*
-     * Galería en dos columnas (índices pares a la izquierda, impares a la derecha).
-     * `frame` y `focus` (opcionales) recortan la foto SOLO en la página para que las dos columnas
-     * terminen a la misma altura; en «Ver todas las fotos» se ve siempre completa.
-     */
     gallery: [
       {
-        src: "/brand/photos/pergola.webp",
-        alt: "Florencia y Matías bajo la pérgola iluminada",
-        ratio: 0.6373,
-        frame: 0.8,
-        focus: "50% 85%",
+        src: "https://images.pexels.com/photos/31107093/pexels-photo-31107093.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja posando con flores",
+        ratio: 0.6667,
       },
       {
-        src: "/brand/photos/playa-acostados.webp",
-        alt: "Florencia y Matías acostados en la arena",
-        ratio: 1.028,
+        src: "https://images.pexels.com/photos/31107094/pexels-photo-31107094.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja con un girasol",
+        ratio: 0.6667,
       },
       {
-        src: "/brand/photos/vuelo-playa.webp",
-        alt: "Matías levantando a Florencia en la playa",
-        ratio: 0.87,
+        src: "https://images.pexels.com/photos/31107091/pexels-photo-31107091.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja posando entre flores",
+        ratio: 0.6667,
       },
-      { src: "/brand/photos/familia.webp", alt: "Florencia, Matías y sus hijos", ratio: 0.7623 },
+      {
+        src: "https://images.pexels.com/photos/31107092/pexels-photo-31107092.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        alt: "La pareja en una sesión al aire libre",
+        ratio: 0.6667,
+      },
     ],
-    more: [
-      { src: "/brand/photos/escalera-bn.webp", alt: "Florencia y Matías en una escalera", ratio: 1.0138 },
-      {
-        src: "/brand/photos/selfie-playa.webp",
-        alt: "Selfie de Florencia y Matías en la playa",
-        ratio: 0.862,
-      },
-      {
-        src: "/brand/photos/espalda-playa-bn.webp",
-        alt: "Florencia en la espalda de Matías con los brazos abiertos",
-        ratio: 0.7714,
-      },
-      { src: "/brand/photos/mirador.webp", alt: "Florencia y Matías en un mirador", ratio: 1.3538 },
-    ],
-  },
+    more: [],
+  } as PhotoSet,
 
   welcome: {
     title: "¡Nos casamos!",
@@ -78,21 +72,20 @@ export const agenda = {
     title: "Civil",
     note: "Opcional · para quien quiera acompañarnos",
     confirmed: false,
-    day: "Viernes 11 de diciembre",
-    time: "9:15 hs",
-    name: "Registro Civil de Lomas de Zamora",
-    address: "Liniers 155, Lomas de Zamora",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Liniers+155%2C+Lomas+de+Zamora",
+    day: "Sábado 20 de marzo",
+    time: "10:30 hs",
+    name: "Registro Civil de Ejemplo",
+    address: "Calle Ejemplo 123, Ciudad Ejemplo",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Calle+Ejemplo+123%2C+Ciudad+Ejemplo",
   },
 
   place: {
     title: "Festejo",
-    tag: "En un boliche · noche informal y de mucho baile",
-    name: "Night club Beliving",
-    address: "Gral. Bartolomé Mitre 376, Lomas de Zamora",
-    locality: "Lomas de Zamora",
-    mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Night+club+Beliving%2C+Gral.+Bartolom%C3%A9+Mitre+376%2C+Lomas+de+Zamora",
+    tag: "En un salón · noche informal y de mucho baile",
+    name: "Salón Jardín de Ejemplo",
+    address: "Av. Siempre Viva 742, Ciudad Ejemplo",
+    locality: "Ciudad Ejemplo",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Av.+Siempre+Viva+742%2C+Ciudad+Ejemplo",
   },
 
   /** Cómo va a ser la noche. Solo la llegada tiene hora fija. */
@@ -150,8 +143,8 @@ export const agenda = {
     eyebrow: "Si querés regalarnos algo",
     message: "¡El mejor regalo es tu presencia!\nSi deseas realizarnos un regalo...",
     bank: "Banco Ejemplo",
-    holder: "Titular de ejemplo",
-    alias: "FLOR.MATI.2026",
+    holder: "Titular de Ejemplo",
+    alias: "EJEMPLO.BODA.27",
   },
 
   songs: {

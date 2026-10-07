@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${first} & ${second} · Nuestra boda`,
   description:
-    "¡Nos casamos! Viernes 11 de diciembre, 21 hs, en Lomas de Zamora. Toda la info del festejo y la confirmación de asistencia.",
+    "Invitación de boda de ejemplo (datos ficticios): fecha, lugar, cronograma, confirmación de asistencia, galería y playlist.",
   // Es una invitación privada con datos de personas: no debe aparecer en buscadores.
   robots: { index: false, follow: false },
 };
