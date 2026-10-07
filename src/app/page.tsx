@@ -343,8 +343,11 @@ export default function Home() {
       </section>
 
       {/* ───────── Pie ───────── */}
-      <footer className="paper relative overflow-hidden px-6 pt-24 pb-10 text-center">
-        <CornerBranch corner="bl" className="h-36 w-36 opacity-70 sm:h-52 sm:w-52" />
+      <footer className="paper relative overflow-hidden px-6 pt-24 pb-4 text-center">
+        <CornerBranch
+          corner="bl"
+          className="-mb-4 -ml-8 h-36 w-36 opacity-70 sm:mb-0 sm:ml-0 sm:h-40 sm:w-40"
+        />
         <CornerBranch corner="tr" className="h-32 w-32 opacity-50 sm:h-44 sm:w-44" />
         <div className="relative">
           <Divider />
@@ -353,7 +356,7 @@ export default function Home() {
             {couple.first} <span className="text-leaf italic">&amp;</span> {couple.second}
           </p>
           <p className="text-moss-soft mt-4 text-xs tracking-[0.4em] uppercase">{cardDate.join(" · ")}</p>
-          <p className="text-moss-soft border-line mt-16 border-t pt-8 text-[0.75rem] tracking-wide">
+          <p className="text-moss-soft border-line relative mt-12 border-t pt-4 text-[0.75rem] tracking-wide">
             Diseño y desarrollo web por{" "}
             <a
               href="https://ariel-ferencak.netlify.app/"
