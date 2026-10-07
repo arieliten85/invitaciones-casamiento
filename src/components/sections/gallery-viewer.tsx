@@ -11,7 +11,7 @@ type Img = { src?: string; alt: string };
  * Usa <dialog>: el navegador atrapa el foco, bloquea el fondo y cierra con Escape.
  * Las fotos solo se cargan cuando la ventana está abierta.
  */
-export function GalleryViewer({ photos }: { photos: Img[] }) {
+export function GalleryViewer({ photos, className }: { photos: Img[]; className?: string }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
 
@@ -34,7 +34,7 @@ export function GalleryViewer({ photos }: { photos: Img[] }) {
 
   return (
     <>
-      <Button variant="outline" onClick={() => setOpen(true)} aria-haspopup="dialog">
+      <Button variant="outline" onClick={() => setOpen(true)} aria-haspopup="dialog" className={className}>
         Ver todas las fotos
       </Button>
 

@@ -5,36 +5,25 @@ import localFont from "next/font/local";
  * Se sirven desde el propio sitio: sin pedidos a Google y con build reproducible.
  */
 
-export const cormorant = localFont({
-  variable: "--font-cormorant",
+/** Títulos: serif clásica y elegante (nombres, «Cuándo y dónde», horarios). */
+export const playfair = localFont({
+  variable: "--font-playfair",
   display: "swap",
   src: [
-    { path: "./fonts/cormorant-garamond-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/cormorant-garamond-latin-500-italic.woff2", weight: "500", style: "italic" },
+    { path: "./fonts/playfair-display-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/playfair-display-latin-400-italic.woff2", weight: "400", style: "italic" },
   ],
 });
 
-export const montserrat = localFont({
-  variable: "--font-montserrat",
+/** Texto y rótulos en mayúsculas espaciadas. */
+export const lato = localFont({
+  variable: "--font-lato",
   display: "swap",
   src: [
-    { path: "./fonts/montserrat-latin-300-normal.woff2", weight: "300", style: "normal" },
-    { path: "./fonts/montserrat-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/montserrat-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/montserrat-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/lato-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/lato-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/lato-latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
 });
 
-export const baskerville = localFont({
-  variable: "--font-baskerville",
-  display: "swap",
-  src: [{ path: "./fonts/libre-baskerville-latin-400-normal.woff2", weight: "400", style: "normal" }],
-});
-
-export const jost = localFont({
-  variable: "--font-jost",
-  display: "swap",
-  src: [{ path: "./fonts/jost-latin-400-normal.woff2", weight: "400", style: "normal" }],
-});
-
-export const fontVariables = `${cormorant.variable} ${montserrat.variable} ${baskerville.variable} ${jost.variable}`;
+export const fontVariables = `${playfair.variable} ${lato.variable}`;

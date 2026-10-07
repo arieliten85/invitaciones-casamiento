@@ -1,42 +1,46 @@
-/* Tokens semánticos del tema. Los componentes usan estos nombres (bg-surface, text-muted…),
-   nunca colores sueltos. Para cambiar el estilo del evento se editan solo estos valores. */
+/* Tokens semánticos del tema. Los componentes usan estos nombres, nunca colores sueltos.
+   Para cambiar el estilo del evento se editan solo estos valores. */
 
 @theme {
-  /* Superficies */
-  --color-background: #ffffff;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f1ede6;
+  /* Paleta «Jardín»: papel claro, verde salvia y texto verde musgo */
+  --color-paper: #f6f6f1; /* fondo principal */
+  --color-mist: #eceee6; /* franjas y tarjetas suaves */
+  --color-card: #ffffff;
+  --color-moss: #36412f; /* títulos y texto fuerte */
+  --color-moss-soft: #5f6858; /* texto de párrafo */
+  --color-leaf: #7b9670; /* botones, números, acentos */
+  --color-leaf-deep: #5b7550; /* rótulos y hover */
+  --color-leaf-soft: #e3e9dc; /* círculos de íconos, fondos de chips */
+  --color-line: #dce1d4; /* bordes finos */
 
-  /* Texto */
-  --color-foreground: #1f1d1b; /* negro suave */
-  --color-muted: #6b665f;
+  /* Superficies y texto genéricos (también los usa el panel admin) */
+  --color-background: #f6f6f1;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eceee6;
+  --color-foreground: #36412f;
+  --color-muted: #6c7466;
   --color-on-primary: #ffffff;
 
-  /* Marca */
-  --color-primary: #1f1d1b;
-  --color-primary-hover: #3a3733;
-  --color-primary-soft: #e9e4db; /* arena */
-  --color-sage: #759d89; /* verde de los botones */
-  --color-sage-hover: #668b78;
-  --color-blush: #e6ddd6; /* franjas rosado-beige */
-  --color-ink: #333333;
-  --color-sage-soft: #e3e5df;
-  --color-gold: #a08a5c; /* detalle fino, muy poco uso */
+  --color-primary: #7b9670;
+  --color-primary-hover: #5b7550;
+  --color-primary-soft: #e3e9dc;
+  --color-sage: #7b9670;
+  --color-sage-hover: #5b7550;
+  --color-sage-soft: #e3e9dc;
 
   /* Estados */
-  --color-border: #e3ddd2;
-  --color-ring: #1f1d1b;
+  --color-border: #dce1d4;
+  --color-ring: #5b7550;
   --color-danger: #9c2f2a;
   --color-danger-soft: #f5e0de;
   --color-success: #3f6b4d;
   --color-success-soft: #e0eee4;
 
   /* Tipografías (las variables las define next/font en src/theme/fonts.ts) */
-  --font-display: var(--font-baskerville), Georgia, serif;
-  --font-hero: var(--font-jost), system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), Georgia, serif;
-  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-lato), system-ui, sans-serif;
 
-  --radius-card: 0.25rem;
-  --shadow-card: 0 1px 2px rgb(31 29 27 / 0.04), 0 18px 40px -24px rgb(31 29 27 / 0.22);
+  --radius-card: 1.75rem;
+  --shadow-card: 0 1px 2px rgb(54 65 47 / 0.04), 0 22px 44px -26px rgb(54 65 47 / 0.28);
 }

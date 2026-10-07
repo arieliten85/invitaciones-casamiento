@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { eventConfig } from "@/config/event.config";
+import { agenda } from "@/content/agenda.content";
 import { fontVariables } from "@/theme/fonts";
 import "./globals.css";
 
-const { first, second } = eventConfig.couple;
+const { first, second } = agenda.couple;
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -13,14 +13,15 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${first} & ${second} · Nuestro casamiento`,
-  description: `Estás invitado al casamiento de ${first} y ${second}. Confirmá tu asistencia desde acá.`,
+  title: `${first} & ${second} · Nuestra boda`,
+  description:
+    "¡Nos casamos! Viernes 11 de diciembre, 21 hs, en Lomas de Zamora. Toda la info del festejo y la confirmación de asistencia.",
   // Es una invitación privada con datos de personas: no debe aparecer en buscadores.
   robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#e9e4da",
+  themeColor: "#f4f5ef",
   width: "device-width",
   initialScale: 1,
 };

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { lightButton, sageButton } from "./block";
+import { buttonStyles } from "./block";
+import { Garland } from "./botanical";
 
 type Props = { bank: string; holder: string; alias: string };
 
@@ -46,31 +47,34 @@ export function GiftModal({ bank, holder, alias }: Props) {
 
   return (
     <>
-      <button type="button" onClick={open} className={`${lightButton} mt-7`}>
-        Ver más
+      <button type="button" onClick={open} className={`reveal ${buttonStyles.leaf}`}>
+        Ver datos bancarios
       </button>
       <dialog
         ref={dialog}
         aria-label="Datos bancarios"
         onClick={(e) => e.target === dialog.current && dialog.current?.close()}
-        className="bg-background text-ink m-auto w-[calc(100%-2.5rem)] max-w-sm rounded-md p-0 shadow-2xl backdrop:bg-black/50"
+        className="bg-paper text-moss backdrop:bg-moss/60 m-auto w-[calc(100%-2.5rem)] max-w-sm rounded-3xl p-0 shadow-2xl backdrop:backdrop-blur-sm"
       >
-        <div className="relative px-6 py-9 text-center">
+        <div className="relative px-6 pt-8 pb-9 text-center">
+          <Garland className="text-leaf mx-auto h-8 w-48" />
           <button
             type="button"
             aria-label="Cerrar"
             onClick={() => dialog.current?.close()}
-            className="text-ink/60 hover:text-ink absolute top-3 right-4 text-2xl leading-none"
+            className="text-moss-soft hover:text-moss absolute top-3 right-4 text-2xl leading-none"
           >
             ×
           </button>
-          <h3 className="font-serif text-2xl tracking-[0.2em] uppercase">Datos bancarios</h3>
-          <p className="text-ink/70 mt-5 text-sm font-light">
+          <h3 className="text-moss mt-3 font-serif text-3xl">Datos bancarios</h3>
+          <p className="text-moss-soft mt-4 text-sm">
             {bank} · {holder}
           </p>
-          <p className="mt-5 text-xs font-medium tracking-[0.25em] uppercase">Alias</p>
-          <p className="mt-1 text-xl font-medium tracking-wide select-all">{alias}</p>
-          <button type="button" onClick={copy} className={`${sageButton} mt-6`}>
+          <div className="bg-card border-line mt-6 rounded-2xl border px-4 py-4">
+            <p className="text-leaf-deep text-[0.65rem] tracking-[0.3em] uppercase">Alias</p>
+            <p className="text-moss mt-1 font-serif text-2xl tracking-wide select-all">{alias}</p>
+          </div>
+          <button type="button" onClick={copy} className={`${buttonStyles.leaf} mt-6 w-full`}>
             {copied ? "Copiado ✓" : "Copiar alias"}
           </button>
           <span className="sr-only" role="status">

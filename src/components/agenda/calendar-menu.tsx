@@ -9,9 +9,9 @@ import {
   yahooLink,
   type CalendarEvent,
 } from "@/lib/calendar-link";
-import { sageButton } from "./block";
+import { buttonStyles, type ButtonKind } from "./block";
 
-export function CalendarMenu({ event }: { event: CalendarEvent }) {
+export function CalendarMenu({ event, kind = "outline" }: { event: CalendarEvent; kind?: ButtonKind }) {
   const [open, setOpen] = useState(false);
   const box = useRef<HTMLDivElement>(null);
 
@@ -30,11 +30,11 @@ export function CalendarMenu({ event }: { event: CalendarEvent }) {
   }, [open]);
 
   const items = [
-    { label: "Google", href: googleCalendarLink(event) },
-    { label: "Outlook", href: outlookLink(event) },
-    { label: "Microsoft 365", href: microsoft365Link(event) },
-    { label: "Apple", href: icsLink(event), download: "casamiento.ics" },
-    { label: "Yahoo", href: yahooLink(event) },
+    { label: "Google Calendar", icon: "google", href: googleCalendarLink(event) },
+    { label: "Outlook", icon: "outlook", href: outlookLink(event) },
+    { label: "Microsoft 365", icon: "microsoft365", href: microsoft365Link(event) },
+    { label: "Apple Calendar", icon: "apple", href: icsLink(event), download: "casamiento.ics" },
+    { label: "Yahoo", icon: "yahoo", href: yahooLink(event) },
   ];
 
   return (
@@ -44,7 +44,7 @@ export function CalendarMenu({ event }: { event: CalendarEvent }) {
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
-        className={`${sageButton} mt-7`}
+        className={buttonStyles[kind]}
       >
         Agendar evento
         <span
@@ -55,7 +55,7 @@ export function CalendarMenu({ event }: { event: CalendarEvent }) {
       {open ? (
         <ul
           role="menu"
-          className="bg-ink absolute top-full left-1/2 z-20 mt-1 w-56 -translate-x-1/2 overflow-hidden rounded-md text-left shadow-xl"
+          className="bg-card border-line absolute top-full left-1/2 z-20 mt-2 w-60 -translate-x-1/2 overflow-hidden rounded-2xl border py-2 text-left shadow-2xl"
         >
           {items.map((i) => (
             <li key={i.label} role="none">
@@ -66,27 +66,15 @@ export function CalendarMenu({ event }: { event: CalendarEvent }) {
                 target={i.download ? undefined : "_blank"}
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 px-5 py-3 text-sm text-white/90 hover:bg-white/10"
+                className="text-moss hover:bg-leaf-soft flex items-center gap-3 px-5 py-3 text-sm"
               >
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-white/70">
-                  <rect
-                    x="3.5"
-                    y="5"
-                    width="17"
-                    height="15"
-                    rx="2"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M3.5 10h17M8 3v4M16 3v4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                {/* eslint-disable-next-line @next/next/no-img-element -- ícono SVG estático */}
+                <img
+                  src={`/brand/calendar/${i.icon}.svg`}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-5 w-5 shrink-0 object-contain"
+                />
                 {i.label}
               </a>
             </li>

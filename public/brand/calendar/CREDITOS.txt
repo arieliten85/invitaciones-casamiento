@@ -1,0 +1,5 @@
+Íconos oficiales de cada calendario, tomados de colecciones abiertas (vía Iconify):
+- google.svg, microsoft365.svg, apple.svg: gilbarbara/logos (CC0-1.0)
+- outlook.svg: vscode-icons (MIT)
+- yahoo.svg: Font Awesome Free Brands (CC BY 4.0)
+Las marcas pertenecen a sus dueños; se usan solo para identificar cada servicio.
