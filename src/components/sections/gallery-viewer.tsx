@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Photo } from "@/components/ui/photo";
 
-type Img = { src?: string; alt: string };
+type Img = { src?: string; alt: string; ratio?: number };
 
 /**
  * Botón «Ver todas las fotos» + ventana con todas las fotos.
@@ -64,9 +64,13 @@ export function GalleryViewer({ photos, className }: { photos: Img[]; className?
         </div>
 
         {open ? (
-          <ul className="grid grid-cols-2 gap-2 p-2 sm:grid-cols-3 sm:gap-3 sm:p-4">
+          <ul className="columns-2 gap-2 p-2 sm:columns-3 sm:gap-3 sm:p-4">
             {photos.map((p, i) => (
-              <li key={`${p.alt}-${i}`} className="relative aspect-[4/5] overflow-hidden">
+              <li
+                key={`${p.alt}-${i}`}
+                className="relative mb-2 break-inside-avoid overflow-hidden rounded-2xl sm:mb-3"
+                style={{ aspectRatio: p.ratio ?? 0.8 }}
+              >
                 <Photo src={p.src} alt={p.alt} sizes="(min-width: 640px) 33vw, 50vw" />
               </li>
             ))}

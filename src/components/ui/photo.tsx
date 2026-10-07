@@ -10,6 +10,8 @@ type Props = {
   priority?: boolean;
   /** En el espacio vacío, muestra el texto alternativo como rótulo visible. */
   showLabel?: boolean;
+  /** Punto de enfoque del recorte (object-position), p. ej. "50% 80%". */
+  position?: string;
   className?: string;
 };
 
@@ -17,7 +19,7 @@ type Props = {
  * Foto que rellena su contenedor (el padre define el tamaño y debe ser `relative`).
  * Si todavía no hay archivo, muestra un espacio neutro para que el diseño se vea completo.
  */
-export function Photo({ src, alt, sizes, priority, showLabel = true, className }: Props) {
+export function Photo({ src, alt, sizes, priority, showLabel = true, position, className }: Props) {
   if (!src) {
     return (
       <div
@@ -43,6 +45,7 @@ export function Photo({ src, alt, sizes, priority, showLabel = true, className }
       fill
       sizes={sizes}
       priority={priority}
+      style={position ? { objectPosition: position } : undefined}
       className={cn("object-cover", className)}
     />
   );

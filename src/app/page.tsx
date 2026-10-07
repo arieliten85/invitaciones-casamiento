@@ -281,26 +281,32 @@ export default function Home() {
       <section id="galeria" className="bg-mist px-5 py-20 sm:py-28">
         <Heading eyebrow="Momentos" title={gallery.title} />
         <Text className="mx-auto mt-5 max-w-lg text-center">{gallery.text}</Text>
-        <ul className="reveal-grid mx-auto mt-12 grid max-w-3xl auto-rows-[9rem] grid-cols-2 gap-3 sm:auto-rows-[12rem] md:auto-rows-[15rem] md:gap-4">
-          {photos.gallery.map((p, i) => (
-            <li
-              key={p.src}
-              className={`group relative overflow-hidden rounded-[1.5rem] ${
-                ["row-span-2", "", "row-span-2", "", "col-span-2", "col-span-2 md:col-span-1"][i]
-              }`}
-            >
-              <Photo
-                src={p.src}
-                alt={p.alt}
-                sizes="(min-width: 768px) 22rem, 50vw"
-                className="transition-transform duration-700 group-hover:scale-105"
-              />
-            </li>
+        <div className="reveal-grid mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-3 md:gap-4">
+          {[0, 1].map((col) => (
+            <ul key={col} className="flex flex-col gap-3 md:gap-4">
+              {photos.gallery
+                .filter((_, i) => i % 2 === col)
+                .map((p) => (
+                  <li
+                    key={p.src}
+                    className="group relative overflow-hidden rounded-[1.5rem] last:flex-1"
+                    style={{ aspectRatio: "frame" in p ? p.frame : p.ratio }}
+                  >
+                    <Photo
+                      src={p.src}
+                      alt={p.alt}
+                      position={"focus" in p ? p.focus : undefined}
+                      sizes="(min-width: 768px) 22rem, 50vw"
+                      className="transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </li>
+                ))}
+            </ul>
           ))}
-        </ul>
+        </div>
         <div className="mt-10 text-center">
           <GalleryViewer
-            photos={[...photos.gallery, ...photos.more]}
+            photos={[...photos.gallery, ...photos.strip, ...photos.more]}
             className="border-leaf/60 text-leaf-deep hover:bg-leaf-soft rounded-full px-7 text-[0.92rem] font-normal tracking-normal normal-case"
           />
         </div>
@@ -337,8 +343,8 @@ export default function Home() {
       </section>
 
       {/* ───────── Pie ───────── */}
-      <footer className="paper relative overflow-hidden px-6 pt-24 pb-5 text-center">
-        <CornerBranch corner="bl" className="h-20 w-20 opacity-60 sm:h-52 sm:w-52 sm:opacity-70" />
+      <footer className="paper relative overflow-hidden px-6 pt-24 pb-10 text-center">
+        <CornerBranch corner="bl" className="h-36 w-36 opacity-70 sm:h-52 sm:w-52" />
         <CornerBranch corner="tr" className="h-32 w-32 opacity-50 sm:h-44 sm:w-44" />
         <div className="relative">
           <Divider />
@@ -347,7 +353,7 @@ export default function Home() {
             {couple.first} <span className="text-leaf italic">&amp;</span> {couple.second}
           </p>
           <p className="text-moss-soft mt-4 text-xs tracking-[0.4em] uppercase">{cardDate.join(" · ")}</p>
-          <p className="text-moss-soft border-line relative mt-12 border-t pt-5 pb-1 text-[0.75rem] tracking-wide">
+          <p className="text-moss-soft border-line mt-16 border-t pt-8 text-[0.75rem] tracking-wide">
             Diseño y desarrollo web por{" "}
             <a
               href="https://ariel-ferencak.netlify.app/"
