@@ -1,8 +1,11 @@
 /**
  * Datos reales de la invitación (novios, fecha, lugar, dress code, textos de la tarjeta y la dinámica
  * de la noche que contó Florencia) y los dos formularios de Google.
- * Siguen siendo DE EJEMPLO o A CONFIRMAR: alias y datos bancarios.
+ * Siguen siendo DE EJEMPLO o A CONFIRMAR: banco y titular.
  */
+type Photo = { src: string; alt: string; ratio: number; frame?: number; focus?: string };
+type PhotoSet = { strip: readonly Photo[]; gallery: readonly Photo[]; more: readonly Photo[] };
+
 export const agenda = {
   couple: { first: "Florencia", second: "Matías" },
   /** Frase corta debajo de «Nuestra Boda» en la portada. */
@@ -34,13 +37,6 @@ export const agenda = {
      */
     gallery: [
       {
-        src: "/brand/photos/pergola.webp",
-        alt: "Florencia y Matías bajo la pérgola iluminada",
-        ratio: 0.6373,
-        frame: 0.8,
-        focus: "50% 85%",
-      },
-      {
         src: "/brand/photos/playa-acostados.webp",
         alt: "Florencia y Matías acostados en la arena",
         ratio: 1.028,
@@ -51,22 +47,14 @@ export const agenda = {
         ratio: 0.87,
       },
       { src: "/brand/photos/familia.webp", alt: "Florencia, Matías y sus hijos", ratio: 0.7623 },
-    ],
-    more: [
-      { src: "/brand/photos/escalera-bn.webp", alt: "Florencia y Matías en una escalera", ratio: 1.0138 },
       {
         src: "/brand/photos/selfie-playa.webp",
         alt: "Selfie de Florencia y Matías en la playa",
         ratio: 0.862,
       },
-      {
-        src: "/brand/photos/espalda-playa-bn.webp",
-        alt: "Florencia en la espalda de Matías con los brazos abiertos",
-        ratio: 0.7714,
-      },
-      { src: "/brand/photos/mirador.webp", alt: "Florencia y Matías en un mirador", ratio: 1.3538 },
     ],
-  },
+    more: [{ src: "/brand/photos/mirador.webp", alt: "Florencia y Matías en un mirador", ratio: 1.3538 }],
+  } as PhotoSet,
 
   welcome: {
     title: "¡Nos casamos!",
@@ -87,7 +75,7 @@ export const agenda = {
 
   place: {
     title: "Festejo",
-    tag: "En un boliche · noche informal y de mucho baile",
+    tag: "Noche informal y de mucho baile",
     name: "Night club Beliving",
     address: "Gral. Bartolomé Mitre 376, Lomas de Zamora",
     locality: "Lomas de Zamora",
@@ -135,7 +123,7 @@ export const agenda = {
       },
     ],
     formUrl:
-      "https://docs.google.com/forms/d/e/1FAIpQLSfcZEiWRrTFsv_O5DJ0RmS_f-q64q_zc1yRimT1Y8J_PdcfOg/viewform",
+      "https://docs.google.com/forms/d/e/1FAIpQLSd5WDEnNmM6uUZETFGT50PeWALPuCiRk2QaMztwsb5LVJ7wlg/viewform",
   },
 
   dressCode: "Elegante sport.",
@@ -151,7 +139,7 @@ export const agenda = {
     message: "¡El mejor regalo es tu presencia!\nSi deseas realizarnos un regalo...",
     bank: "Banco Ejemplo",
     holder: "Titular de ejemplo",
-    alias: "FLOR.MATI.2026",
+    alias: "matias.florrr",
   },
 
   songs: {
@@ -170,7 +158,7 @@ export const agenda = {
       { entry: "", name: "nombre", label: "Tu nombre", kind: "text", required: false },
     ],
     formUrl:
-      "https://docs.google.com/forms/d/e/1FAIpQLSfdtmBohj5qbCYqTHMoKBQw7QHg-qN5RPogetck4j4Pq6c8kA/viewform",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdOc_s0FWXOiBbMAbDvvM2dLJWkGsBtDpS5Wwe4nOAJxOZh2g/viewform",
   },
 
   footer: "¡Gracias por acompañarnos en este momento tan importante!",

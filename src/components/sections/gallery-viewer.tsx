@@ -6,6 +6,27 @@ import { Photo } from "@/components/ui/photo";
 
 type Img = { src?: string; alt: string; ratio?: number };
 
+/** Reparte las fotos en dos columnas de altura casi igual (la diferencia la absorben las fotos con un recorte mínimo). */
+function splitColumns(photos: Img[]): [Img[], Img[]] {
+  const h = photos.map((p) => 1 / (p.ratio ?? 0.8));
+  const total = h.reduce((a, b) => a + b, 0);
+  let best = 0;
+  let bestDiff = Infinity;
+  const n = Math.min(photos.length, 14);
+  for (let mask = 0; mask < 1 << n; mask++) {
+    let left = 0;
+    for (let i = 0; i < n; i++) if (mask & (1 << i)) left += h[i];
+    const diff = Math.abs(total - 2 * left);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      best = mask;
+    }
+  }
+  const cols: [Img[], Img[]] = [[], []];
+  photos.forEach((p, i) => cols[i < n && best & (1 << i) ? 0 : 1].push(p));
+  return cols;
+}
+
 /**
  * Botón «Ver todas las fotos» + ventana con todas las fotos.
  * Usa <dialog>: el navegador atrapa el foco, bloquea el fondo y cierra con Escape.
@@ -64,17 +85,21 @@ export function GalleryViewer({ photos, className }: { photos: Img[]; className?
         </div>
 
         {open ? (
-          <ul className="columns-2 gap-2 p-2 sm:columns-3 sm:gap-3 sm:p-4">
-            {photos.map((p, i) => (
-              <li
-                key={`${p.alt}-${i}`}
-                className="relative mb-2 break-inside-avoid overflow-hidden rounded-2xl sm:mb-3"
-                style={{ aspectRatio: p.ratio ?? 0.8 }}
-              >
-                <Photo src={p.src} alt={p.alt} sizes="(min-width: 640px) 33vw, 50vw" />
-              </li>
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-2 p-2 sm:gap-3 sm:p-4">
+            {splitColumns(photos).map((col, c) => (
+              <ul key={c} className="flex flex-col gap-2 sm:gap-3">
+                {col.map((p, i) => (
+                  <li
+                    key={`${p.alt}-${i}`}
+                    className="relative grow overflow-hidden rounded-2xl"
+                    style={{ aspectRatio: p.ratio ?? 0.8 }}
+                  >
+                    <Photo src={p.src} alt={p.alt} sizes="(min-width: 768px) 24rem, 50vw" />
+                  </li>
+                ))}
+              </ul>
             ))}
-          </ul>
+          </div>
         ) : null}
       </dialog>
     </>
